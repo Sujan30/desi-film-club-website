@@ -103,14 +103,14 @@ export default function Hero() {
           style={{ fontFamily: 'Inter, sans-serif' }}
         >
           Connect with us through food, culture, and film!
-          <span className="text-gold mx-2">·</span>
-          SJSU's Premier Bollywood Film Club
+          <br></br>
+          SJSU's Premier Desi Film Club
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://linktr.ee/DesiFilmClub"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe51sjma-Kt67Sxbg_ozWwl2PpxZMzLvRRfWF9Vf4HFypE1lA/viewform?pli=1"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gold text-navy font-bold text-base px-8 py-3.5 rounded-full hover:bg-gold/90 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white shadow-lg shadow-gold/30 hover:shadow-gold/50 hover:scale-105"
