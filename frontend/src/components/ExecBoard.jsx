@@ -3,6 +3,7 @@ import sujanPhoto from '../assets/officers/sujan.png';
 import shreeyaPhoto from '../assets/officers/shreeya.png';
 import keyuraPhoto from '../assets/officers/keyura.JPG';
 import akashPhoto from '../assets/officers/akash.jpeg';
+import eshaanPhoto from '../assets/officers/eshaan.jpg';
 
 const EXEC_MEMBERS = [
   {
@@ -38,8 +39,8 @@ const EXEC_MEMBERS = [
     bg: '#D4AF37',
     initials: 'ES',
     rotation: 'rotate-2',
-    photo: null,
-    objectPosition: 'center center',
+    photo: eshaanPhoto,
+    objectPosition: 'center 20%',
   },
   {
     id: 4,
@@ -175,7 +176,7 @@ export default function ExecBoard() {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-4 leading-tight"
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
-            (re)INTRODUCING your
+            INTRODUCING your
             <span className="block text-crimson mt-1">2026 Exec Board!</span>
           </h2>
           <p

@@ -64,7 +64,7 @@ export default function JoinCTA() {
         {/* Action buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <a
-            href="https://linktr.ee/DesiFilmClub"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe51sjma-Kt67Sxbg_ozWwl2PpxZMzLvRRfWF9Vf4HFypE1lA/viewform?pli=1"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gold text-navy font-bold text-base px-8 py-3.5 rounded-full hover:bg-gold/90 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-navy shadow-lg shadow-black/20 hover:scale-105 hover:shadow-xl min-w-[140px] text-center"
@@ -101,7 +101,7 @@ export default function JoinCTA() {
           className="text-white/60 text-sm italic"
           style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '16px' }}
         >
-          Free snacks provided at all events!
+          Free snacks & drinks provided at all events!
         </p>
       </div>
     </section>

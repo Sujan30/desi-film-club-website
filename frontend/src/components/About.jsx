@@ -86,7 +86,7 @@ export default function About() {
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 Want to learn more about Desi films? Watch your favorite movies with your friends
-                and meet new people!! Join Desi Film Club and enjoy the free snacks!!!
+                and meet new people!! Join Desi Film Club and enjoy the free snacks & drinks!!!
               </p>
             </div>
 

@@ -76,7 +76,7 @@ export default function Footer() {
               className="text-white/40 text-xs leading-relaxed max-w-xs"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              San Jose State University's premier Bollywood film club. Connecting the Desi
+              San Jose State University's premier Desi film club. Connecting the Desi
               community through cinema, food, and culture.
             </p>
           </div>
