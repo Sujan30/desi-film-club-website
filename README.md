@@ -9,14 +9,6 @@ Official website for the Desi Film Club at San Jose State University.
 
 ---
 
-## Stack
-
-- React 19 + Vite
-- Tailwind CSS v4
-- Google Fonts (Playfair Display, Cormorant Garamond, Inter)
-
-## Getting Started
-
 
 ## make sure you have npm installed
 
