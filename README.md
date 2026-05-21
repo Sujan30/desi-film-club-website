@@ -2,7 +2,10 @@
 
 Official website for the Desi Film Club at San Jose State University.
 
-**Live:** [@sjsu_dfc](https://instagram.com/sjsu_dfc) · [linktr.ee/DesiFilmClub](https://linktr.ee/DesiFilmClub)
+**Live:**
+[website](https://sjsudfc.com)
+[instagram](https://instagram.com/sjsu_dfc)
+[linktree](https://linktr.ee/DesiFilmClub)
 
 ---
 
@@ -13,6 +16,31 @@ Official website for the Desi Film Club at San Jose State University.
 - Google Fonts (Playfair Display, Cormorant Garamond, Inter)
 
 ## Getting Started
+
+
+## make sure you have npm installed
+
+verify npm installation:
+
+```bash
+npm --version
+```
+
+## make sure you have node installed
+
+verify node installation:
+
+```bash
+node --version
+```
+
+if not installed, install using homebrew:
+
+```bash
+brew install node
+```
+
+### Running the website
 
 ```bash
 cd frontend
@@ -52,13 +80,13 @@ frontend/
 └── package.json
 ```
 
-## Exec Board (2026)
+## For any changes made:
 
-| Name | Role |
-|------|------|
-| Nitish Medikonda | President |
-| Sujan Nandikol | Vice President |
-| Eshaan Singapuri | Treasurer |
-| Shreeya Vaidya | Director of PR |
-| Keyura Grandi | Event Coordinator |
-| Akash Chatterjee | Creative Director |
+
+- always make a PR
+- request review to @sujan30
+- in PR write details of changes made 
+
+## NEVER MERGE YOUR CHANGES TO MAIN BRANCH
+
+
