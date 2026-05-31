@@ -96,7 +96,7 @@ const EVENTS = [
     description: 'Movie screening of Jersey — a heartfelt story of grit and second chances. Snacks and drinks provided!',
     color: '#C41E3A',
     tag: 'Movie Night',
-    instagramUrl: 'https://www.instagram.com/desifilmclub.sjsu/',
+    instagramUrl: 'https://www.instagram.com/p/DXqVtVsk1c3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
   },
   {
     id: 9,
@@ -108,7 +108,7 @@ const EVENTS = [
     description: 'DFC X Dravadi presents: Movie screening of Kabhi Khushi Kabhie Gham — a Bollywood classic full of family, music, and emotion.',
     color: '#E8651A',
     tag: 'Movie Night',
-    instagramUrl: 'https://www.instagram.com/desifilmclub.sjsu/',
+    instagramUrl: 'https://www.instagram.com/p/DX8YVSvTbDM/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
   },
 ];
 
