@@ -86,6 +86,30 @@ const EVENTS = [
     tag: 'Movie Night',
     instagramUrl: 'https://www.instagram.com/p/DRKwLuTkjUY/',
   },
+  {
+    id: 8,
+    name: 'Jersey Movie Night',
+    date: 'April 29, 2026',
+    dateISO: '2026-04-29',
+    location: 'Student Union Meeting 2A',
+    time: '7 – 10 PM',
+    description: 'Movie screening of Jersey — a heartfelt story of grit and second chances. Snacks and drinks provided!',
+    color: '#C41E3A',
+    tag: 'Movie Night',
+    instagramUrl: 'https://www.instagram.com/desifilmclub.sjsu/',
+  },
+  {
+    id: 9,
+    name: 'Kabhi Khushi Kabhie Gham Movie Night',
+    date: 'May 7, 2026',
+    dateISO: '2026-05-07',
+    location: 'DMH 226B',
+    time: '6:30 – 10 PM',
+    description: 'DFC X Dravadi presents: Movie screening of Kabhi Khushi Kabhie Gham — a Bollywood classic full of family, music, and emotion.',
+    color: '#E8651A',
+    tag: 'Movie Night',
+    instagramUrl: 'https://www.instagram.com/desifilmclub.sjsu/',
+  },
 ];
 
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -100,7 +124,9 @@ const TODAY = new Date();
 TODAY.setHours(0, 0, 0, 0);
 
 const upcomingEvents = EVENTS.filter(e => new Date(e.dateISO) >= TODAY);
-const pastEvents = EVENTS.filter(e => new Date(e.dateISO) < TODAY);
+const pastEvents = EVENTS
+  .filter(e => new Date(e.dateISO) < TODAY)
+  .sort((a, b) => new Date(b.dateISO) - new Date(a.dateISO));
 
 function FilmStripDots() {
   return (
