@@ -89,7 +89,7 @@ const EVENTS = [
   {
     id: 8,
     name: 'Jersey Movie Night',
-    date: 'April 29, 2026',
+    date: 'April 29',
     dateISO: '2026-04-29',
     location: 'Student Union Meeting 2A',
     time: '7 – 10 PM',
@@ -101,7 +101,7 @@ const EVENTS = [
   {
     id: 9,
     name: 'Kabhi Khushi Kabhie Gham Movie Night',
-    date: 'May 7, 2026',
+    date: 'May 7',
     dateISO: '2026-05-07',
     location: 'DMH 226B',
     time: '6:30 – 10 PM',
