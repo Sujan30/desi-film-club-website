@@ -93,7 +93,7 @@ export default function About() {
             {/* Stats row */}
             <div className="flex flex-wrap gap-6">
               {[
-                { value: '326', label: 'Followers' },
+                { value: 'Oct 8', label: 'Next Event' },
                 { value: '8', label: 'Events' },
                 { value: '6', label: 'Officers' },
               ].map((stat) => (

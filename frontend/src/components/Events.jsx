@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import FilmReelSVG from './FilmReelSVG';
 
-const EVENTS = [
+const SPRING_26_EVENTS = [
   {
     id: 7,
     name: 'Desi Til Dawn — Social Night',
@@ -112,6 +113,26 @@ const EVENTS = [
   },
 ];
 
+const FALL_26_EVENTS = [
+  {
+    id: 10,
+    name: 'MAD Movie Night',
+    date: 'Sept 24',
+    dateISO: '2026-09-24',
+    location: 'DMH 234',
+    time: '7 – 10 PM',
+    description: 'DFC presents a screening of MAD — a fun, high-energy Telugu college comedy. Come hang out and laugh with us!',
+    color: '#C41E3A',
+    tag: 'Movie Night',
+    instagramUrl: 'https://www.instagram.com/p/DdkvpbGT2e3/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==',
+  },
+];
+
+const SEMESTERS = [
+  { id: 'fall-26', label: "Fall '26 Semester", events: FALL_26_EVENTS, isCurrent: true },
+  { id: 'spring-26', label: "Spring '26 Semester", events: SPRING_26_EVENTS, isCurrent: false },
+];
+
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 function getDayOfWeek(dateISO) {
@@ -123,10 +144,16 @@ function getDayOfWeek(dateISO) {
 const TODAY = new Date();
 TODAY.setHours(0, 0, 0, 0);
 
-const upcomingEvents = EVENTS.filter(e => new Date(e.dateISO) >= TODAY);
-const pastEvents = EVENTS
-  .filter(e => new Date(e.dateISO) < TODAY)
-  .sort((a, b) => new Date(b.dateISO) - new Date(a.dateISO));
+function splitEvents(events) {
+  return {
+    upcomingEvents: events
+      .filter(e => new Date(e.dateISO) >= TODAY)
+      .sort((a, b) => new Date(a.dateISO) - new Date(b.dateISO)),
+    pastEvents: events
+      .filter(e => new Date(e.dateISO) < TODAY)
+      .sort((a, b) => new Date(b.dateISO) - new Date(a.dateISO)),
+  };
+}
 
 function FilmStripDots() {
   return (
@@ -231,15 +258,17 @@ function EventCard({ event, isPast }) {
 
         {/* Actions */}
         <div className="pt-1 flex items-center gap-3 flex-wrap">
-          <a
-            href={event.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gold text-sm font-semibold hover:underline transition-all duration-200 inline-flex items-center gap-1"
-            style={{ fontFamily: 'Inter, sans-serif' }}
-          >
-            {learnMoreContent}
-          </a>
+          {event.instagramUrl && (
+            <a
+              href={event.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold text-sm font-semibold hover:underline transition-all duration-200 inline-flex items-center gap-1"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              {learnMoreContent}
+            </a>
+          )}
           {event.rsvpUrl && (
             <a
               href={event.rsvpUrl}
@@ -294,6 +323,11 @@ function SubsectionDivider() {
 }
 
 export default function Events() {
+  const [activeId, setActiveId] = useState(SEMESTERS[0].id);
+  const semester = SEMESTERS.find(sem => sem.id === activeId);
+  const { upcomingEvents, pastEvents } = splitEvents(semester.events);
+  const showUpcoming = semester.isCurrent || upcomingEvents.length > 0;
+
   return (
     <section id="events" className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0D1B2A' }}>
       <div className="max-w-7xl mx-auto">
@@ -322,44 +356,78 @@ export default function Events() {
           </div>
         </div>
 
-        {/* Upcoming Events */}
-        <div>
-          <SubsectionLabel>Upcoming Events</SubsectionLabel>
-          {upcomingEvents.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {upcomingEvents.map(event => (
-                <EventCard key={event.id} event={event} isPast={false} />
-              ))}
-            </div>
-          ) : (
-            <div
-              className="flex items-center justify-center rounded-2xl text-sm"
-              style={{
-                border: '1px dashed rgba(212,175,55,0.2)',
-                background: 'rgba(212,175,55,0.03)',
-                color: 'rgba(255,255,255,0.3)',
-                fontFamily: 'Inter, sans-serif',
-                minHeight: '140px',
-              }}
-            >
-              Stay tuned — more events coming soon!
+        {/* Semester tabs */}
+        <div
+          role="tablist"
+          aria-label="Event semesters"
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          {SEMESTERS.map(sem => {
+            const selected = sem.id === activeId;
+            return (
+              <button
+                key={sem.id}
+                role="tab"
+                type="button"
+                aria-selected={selected}
+                onClick={() => setActiveId(sem.id)}
+                className="px-5 py-2 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-200 cursor-pointer"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  backgroundColor: selected ? '#D4AF37' : 'transparent',
+                  color: selected ? '#0D1B2A' : 'rgba(212,175,55,0.8)',
+                  border: '1px solid rgba(212,175,55,0.4)',
+                }}
+              >
+                {sem.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div role="tabpanel">
+          {showUpcoming && (
+            <>
+          <div>
+            <SubsectionLabel>Upcoming Events</SubsectionLabel>
+            {upcomingEvents.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {upcomingEvents.map(event => (
+                  <EventCard key={event.id} event={event} isPast={false} />
+                ))}
+              </div>
+            ) : (
+              <div
+                className="flex items-center justify-center rounded-2xl text-sm"
+                style={{
+                  border: '1px dashed rgba(212,175,55,0.2)',
+                  background: 'rgba(212,175,55,0.03)',
+                  color: 'rgba(255,255,255,0.3)',
+                  fontFamily: 'Inter, sans-serif',
+                  minHeight: '140px',
+                }}
+              >
+                Stay tuned — more events coming soon!
+              </div>
+            )}
+          </div>
+  
+          <SubsectionDivider />
+            </>
+          )}
+
+          {/* Past Events */}
+          {pastEvents.length > 0 && (
+            <div>
+              <SubsectionLabel>Past Events</SubsectionLabel>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {pastEvents.map(event => (
+                  <EventCard key={event.id} event={event} isPast={true} />
+                ))}
+              </div>
             </div>
           )}
         </div>
-
-        <SubsectionDivider />
-
-        {/* Past Events */}
-        {pastEvents.length > 0 && (
-          <div>
-            <SubsectionLabel>Past Events</SubsectionLabel>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pastEvents.map(event => (
-                <EventCard key={event.id} event={event} isPast={true} />
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

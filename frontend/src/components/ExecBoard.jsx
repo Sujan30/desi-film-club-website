@@ -1,9 +1,9 @@
 import nitishPhoto from '../assets/officers/nitty.jpeg';
 import sujanPhoto from '../assets/officers/sujan.png';
-import shreeyaPhoto from '../assets/officers/shreeya.png';
-import keyuraPhoto from '../assets/officers/keyura.JPG';
+import hemaPhoto from '../assets/officers/hema.png';
 import akashPhoto from '../assets/officers/akash.jpeg';
 import eshaanPhoto from '../assets/officers/eshaan.jpg';
+import mokshaPhoto from '../assets/officers/moksha.png';
 
 const EXEC_MEMBERS = [
   {
@@ -44,30 +44,18 @@ const EXEC_MEMBERS = [
   },
   {
     id: 4,
-    name: 'Shreeya Vaidya',
-    role: 'Director of PR',
-    hometown: 'San Jose, CA',
-    fav: 'Jab We Met',
+    name: 'Hema Zakkula',
+    role: 'Social Media',
+    hometown: 'Hyderabad, India',
+    fav: 'Godavari',
     bg: '#800020',
-    initials: 'SV',
+    initials: 'HZ',
     rotation: '-rotate-2',
-    photo: shreeyaPhoto,
+    photo: hemaPhoto,
     objectPosition: 'center 20%',
   },
   {
     id: 5,
-    name: 'Keyura Grandi',
-    role: 'Event Coordinator',
-    hometown: 'Fremont, CA',
-    fav: 'Eega',
-    bg: '#1a4a6b',
-    initials: 'KG',
-    rotation: 'rotate-1',
-    photo: keyuraPhoto,
-    objectPosition: 'center 10%',
-  },
-  {
-    id: 6,
     name: 'Akash Chatterjee',
     role: 'Creative Director',
     hometown: 'Pleasanton, CA',
@@ -77,6 +65,18 @@ const EXEC_MEMBERS = [
     rotation: '-rotate-1',
     photo: akashPhoto,
     objectPosition: 'center 15%',
+  },
+  {
+    id: 6,
+    name: 'Moksha Gattagalla',
+    role: 'Event Coordinator',
+    hometown: 'Hyderabad, India',
+    fav: 'Race Gurram',
+    bg: '#2a6b4a',
+    initials: 'MG',
+    rotation: 'rotate-2',
+    photo: mokshaPhoto,
+    objectPosition: 'center 20%',
   },
 ];
 
